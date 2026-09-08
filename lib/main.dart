@@ -1,18 +1,25 @@
+import 'package:chatapp/firebase_options.dart';
 import 'package:chatapp/screens/splash_screen/splash_screen.dart';
+import 'package:chatapp/themes/light_mode.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
+      theme: LightMode().lightMode,
+      // theme: DarkMode().darkMode,
     );
   }
 }

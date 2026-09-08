@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086460964157",
+    "project_id": "rivo-c99c2",
+    "storage_bucket": "rivo-c99c2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086460964157:android:4c086e6674c07d6ece6954",
+        "android_client_info": {
+          "package_name": "com.example.chatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp2j14r4PgrwiFf0mZlHF2mHhsE__sf0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
