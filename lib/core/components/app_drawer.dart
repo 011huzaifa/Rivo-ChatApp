@@ -6,10 +6,10 @@ class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
 
   void logout() {
-    final _auth = AuthService();
+    final auth = AuthService();
 
     //logout
-    _auth.signOut();
+    auth.signOut();
   }
 
   @override

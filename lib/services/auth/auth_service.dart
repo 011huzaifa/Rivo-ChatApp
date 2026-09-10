@@ -6,6 +6,11 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
+  //get current user
+  User? currentUser() {
+    return _auth.currentUser;
+  }
+
   //sign in
   Future<UserCredential> signInWithEmailPassowrd(String email, password) async {
     try {
@@ -13,6 +18,11 @@ class AuthService {
         email: email,
         password: password,
       );
+      //save user if its not already exists
+      _firebaseFirestore.collection("Users").doc(userCredential.user!.uid).set({
+        "uid": userCredential.user!.uid,
+        "email": email,
+      });
       return userCredential;
     } on FirebaseAuthException catch (e) {
       throw (e.code);
@@ -25,6 +35,7 @@ class AuthService {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
+
       //save user info in a seperate doc
       _firebaseFirestore.collection("Users").doc(userCredential.user!.uid).set({
         "uid": userCredential.user!.uid,
@@ -40,6 +51,4 @@ class AuthService {
   Future<void> signOut() async {
     return await _auth.signOut();
   }
-
-  //signin with google
 }

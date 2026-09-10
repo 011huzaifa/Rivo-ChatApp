@@ -8,6 +8,7 @@ class LightMode {
       surface: AppColors.lightThemeBg,
       onSurface: AppColors.lightThemeForeground,
       secondary: AppColors.lightThemeForegroundSecondary,
+      tertiary: AppColors.lightThemeTertiaryColor
     ),
     textTheme: TextTheme(
       headlineMedium: TextStyle(

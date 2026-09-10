@@ -1,5 +1,6 @@
 import 'package:chatapp/core/components/app_drawer.dart';
 import 'package:chatapp/core/components/user_tile.dart';
+import 'package:chatapp/screens/chat_screen/chat_screen.dart';
 import 'package:chatapp/services/auth/auth_service.dart';
 import 'package:chatapp/services/chat/chat_services.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,12 @@ class HomeScreen extends StatelessWidget {
 
         //loading..
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Text("Waiting");
+          return const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text("Loading..")],
+            ),
+          );
         }
 
         //user list
@@ -53,18 +59,23 @@ class HomeScreen extends StatelessWidget {
 
   //build invidual list tile for user
   Widget _buildUser(Map<String, dynamic> userData, BuildContext context) {
-    return UserTile(
-      text: userData["email"],
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return HomeScreen();
-            },
-          ),
-        );
-      },
-    );
+    if (userData["email"] != _authService.currentUser()!.email) {
+      return UserTile(
+        text: userData["email"],
+        //on tap -> go to chat screen
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return ChatScreen(recieverEmail: userData["email"]);
+              },
+            ),
+          );
+        },
+      );
+    } else {
+      return Container();
+    }
   }
 }
