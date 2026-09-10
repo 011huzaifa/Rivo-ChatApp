@@ -1,8 +1,6 @@
 import 'dart:async';
 
-import 'package:chatapp/auth/login_or_register.dart';
-import 'package:chatapp/screens/login_screen/login_screen.dart';
-import 'package:chatapp/screens/register_screen/register_screen.dart';
+import 'package:chatapp/services/auth/auth_gate.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,7 +20,7 @@ class _SplashScreen extends State<SplashScreen> {
         context,
         MaterialPageRoute(
           builder: (_) {
-            return LoginOrRegister();
+            return AuthGate();
           },
         ),
       );

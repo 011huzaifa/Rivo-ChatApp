@@ -16,7 +16,7 @@ class AppButtons extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         textStyle: Theme.of(context).textTheme.bodyMedium,
       ),
-      child: Text("Login"),
+      child: Text("$buttonLabel"),
     );
   }
 }
