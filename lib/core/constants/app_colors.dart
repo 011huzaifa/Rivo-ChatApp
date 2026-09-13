@@ -6,7 +6,7 @@ class AppColors {
   static Color lightThemeBg = Colors.white;
   static Color lightThemeForeground = Colors.black;
   static Color lightThemeForegroundSecondary = Colors.white;
-  static final lightThemeTertiaryColor = Colors.grey[100];
+  static final lightThemeTertiaryColor = Colors.grey[200];
 
   //dark theme
   static Color darkThemePrimary = Colors.tealAccent;

@@ -2,7 +2,6 @@ import 'package:chatapp/services/auth/auth_service.dart';
 import 'package:chatapp/core/components/app_buttons.dart';
 import 'package:chatapp/core/components/app_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 class RegisterScreen extends StatelessWidget {
   final _emailController = TextEditingController();
